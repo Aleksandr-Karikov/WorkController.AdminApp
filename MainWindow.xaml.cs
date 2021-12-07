@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WorkControllerAdmin.Http;
 
 namespace WorkControllerAdmin
 {
@@ -21,23 +22,17 @@ namespace WorkControllerAdmin
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(IHttpClientFactory clientFactory)
         {
             InitializeComponent();
+            this._clientFactory = clientFactory;
         }
-
+        private readonly IHttpClientFactory _clientFactory;
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (HttpClient client  = new HttpClient())
-            {
-                var response = await client.GetAsync("http://localhost:6341/WeatherForecast");
-                response.EnsureSuccessStatusCode();
-                if (response.IsSuccessStatusCode)
-                {
-                    message.Content = await response.Content.ReadAsStringAsync();
-                }
-                else message.Content = $"server error {response.StatusCode}";
-            }
+            Authenticate post = new(_clientFactory);
+            post.OnPost();
+
         }
     }
 }
