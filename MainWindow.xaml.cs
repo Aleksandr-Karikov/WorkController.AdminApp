@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -14,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WorkControllerAdmin.Http;
+using WorkControllerAdmin.Http.Helper;
+using WorkControllerAdmin.Http.Helper.ApiHelper;
+using WorkControllerAdmin.Http.RequstModels;
 
 namespace WorkControllerAdmin
 {
@@ -30,9 +34,16 @@ namespace WorkControllerAdmin
         private readonly IHttpClientFactory _clientFactory;
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Authenticate post = new(_clientFactory);
-            post.OnPost();
-
+            var response = await RequestHelper.SendPostRequest(ApiHelperUri.RegisterUri, _clientFactory,new RegisterModel()
+            {
+                Email = "test1@gmail.com",
+                FirstName = "Andrey",
+                LastName ="starkov",
+                Password = "12345"
+            });
+            var receiveStream = await response.Content.ReadAsStreamAsync();
+            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+            MessageBox.Show(readStream.ReadToEnd());
         }
     }
 }
