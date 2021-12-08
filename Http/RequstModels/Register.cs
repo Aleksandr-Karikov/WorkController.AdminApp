@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorkControllerAdmin.Http.RequstModels
 {
-    class Register
+    class Register:IRequest
     {
         [JsonProperty("firstName")]
         public string FirstName { get; set; }
