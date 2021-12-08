@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -13,6 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WorkControllerAdmin.Http;
+using WorkControllerAdmin.Http.Helper;
+using WorkControllerAdmin.Http.Helper.ApiHelper;
+using WorkControllerAdmin.Http.RequstModels;
 
 namespace WorkControllerAdmin
 {
@@ -21,23 +26,24 @@ namespace WorkControllerAdmin
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(IHttpClientFactory clientFactory)
         {
             InitializeComponent();
+            this._clientFactory = clientFactory;
         }
-
+        private readonly IHttpClientFactory _clientFactory;
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (HttpClient client  = new HttpClient())
+            var response = await RequestHelper.SendPostRequest(ApiHelperUri.RegisterUri, _clientFactory,new RegisterModel()
             {
-                var response = await client.GetAsync("http://localhost:6341/WeatherForecast");
-                response.EnsureSuccessStatusCode();
-                if (response.IsSuccessStatusCode)
-                {
-                    message.Content = await response.Content.ReadAsStringAsync();
-                }
-                else message.Content = $"server error {response.StatusCode}";
-            }
+                Email = "test1@gmail.com",
+                FirstName = "Andrey",
+                LastName ="starkov",
+                Password = "12345"
+            });
+            var receiveStream = await response.Content.ReadAsStreamAsync();
+            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+            MessageBox.Show(readStream.ReadToEnd());
         }
     }
 }
