@@ -32,7 +32,6 @@ C:\Users\Aleksandr\source\repos\WorkController.WebApi\WorkControllerAdminApp\obj
 C:\Users\Aleksandr\source\repos\WorkController.WebApi\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.genruntimeconfig.cache
 C:\Users\Aleksandr\source\repos\WorkController.WebApi\WorkControllerAdminApp\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.csproj.AssemblyReference.cache
-C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin_MarkupCompile.cache
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin_MarkupCompile.lref
@@ -56,7 +55,6 @@ C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\b
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\MainWindow.baml
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.g.resources
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.AssemblyInfoInputs.cache
@@ -64,3 +62,8 @@ C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\o
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.csproj.CoreCompileInputs.cache
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.csproj.CopyComplete
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.genruntimeconfig.cache
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.g.cs
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.baml
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Resourses.baml
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin_Content.g.cs
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\App.baml

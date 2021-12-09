@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WorkControllerAdmin.Views;
 
 namespace WorkControllerAdmin
 {
@@ -25,7 +26,7 @@ namespace WorkControllerAdmin
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<LoginView>();
             services.AddHttpClient("WorkController", c =>
             {
                 c.BaseAddress = new Uri("http://localhost:6341/");
@@ -38,8 +39,8 @@ namespace WorkControllerAdmin
 
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            var mainWindow = _serviceProvider.GetService<MainWindow>();
-            mainWindow.Show();
+            var loginView = _serviceProvider.GetService<LoginView>();
+            loginView.Show();
         }
     }
 }
