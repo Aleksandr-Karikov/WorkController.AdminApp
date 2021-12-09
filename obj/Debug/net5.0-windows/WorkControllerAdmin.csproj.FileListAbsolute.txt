@@ -67,3 +67,5 @@ C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\o
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Resourses.baml
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin_Content.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\App.baml
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\MainWindow.g.cs
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\MainWindow.baml

@@ -8,17 +8,11 @@ using WorkControllerAdmin.Http.RequstModels.Base;
 
 namespace WorkControllerAdmin.Http.RequstModels
 {
-    class RegisterModel: BaseRequest
+    internal class LoginModel:BaseRequest
     {
-        [JsonProperty("firstName")]
-        public string FirstName { get; set; }
-        [JsonProperty("LastName")]
-        public string LastName { get; set; }
-        [JsonProperty("email")]
-        public string Email { get; set; }
         [JsonProperty("password")]
         public string Password { get; set; }
-
-        
+        [JsonProperty("email")]
+        public string Email { get; set; }
     }
 }
