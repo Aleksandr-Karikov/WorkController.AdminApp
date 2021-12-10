@@ -23,7 +23,7 @@ namespace WorkControllerAdmin.Http.Helper
         public static async Task<HttpResponseMessage> SendPostRequest(string URI, IHttpClientFactory _clientFactory, BaseRequest requestModel)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, URI);
-            var client = _clientFactory.CreateClient("WorkController");
+             var client = _clientFactory.CreateClient("WorkController");
             return await client.PostAsync(request.RequestUri, await RequestHelper.GetNewHttpContent(requestModel));
         }
     }

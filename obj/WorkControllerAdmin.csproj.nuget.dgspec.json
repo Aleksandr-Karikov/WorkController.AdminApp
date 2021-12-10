@@ -59,6 +59,10 @@
             "System.Net.Http": {
               "target": "Package",
               "version": "[4.3.4, )"
+            },
+            "Unity": {
+              "target": "Package",
+              "version": "[5.11.10, )"
             }
           },
           "imports": [

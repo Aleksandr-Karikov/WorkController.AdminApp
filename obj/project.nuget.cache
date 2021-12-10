@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2TLf+TfuRJr3eaRl23qoWL6cqc+ZZOrGLPSYDIlFmuhUyRnyWYJjQQL57pBdVupH21DS+mHf2RvpLq6gqAD+8A==",
+  "dgSpecHash": "9MQ4jDSCOTHFnCrEWt3dlsWXXPxVIYdvoZlkDR0BG0FCkXPLJun2zax63v7XA7HZqz6oBxInKX5aqvucR33bEw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Александр\\source\\repos\\WorkController\\WorkControllerAdminApp\\WorkControllerAdmin.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "C:\\Users\\Александр\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\unity\\5.11.10\\unity.5.11.10.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []

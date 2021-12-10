@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,19 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WorkControllerAdmin.ViewModels;
 
 namespace WorkControllerAdmin.Views
 {
     /// <summary>
-    /// Логика взаимодействия для LoginView.xaml
+    /// Логика взаимодействия для RegisterView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class RegisterView : Window
     {
-        public LoginView(IHttpClientFactory factory)
+        public RegisterView()
         {
+
             InitializeComponent();
-            DataContext = new LoginViewModel(factory);
         }
     }
 }

@@ -27,6 +27,7 @@ namespace WorkControllerAdmin
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<LoginView>();
+            services.AddSingleton<RegisterView>();
             services.AddHttpClient("WorkController", c =>
             {
                 c.BaseAddress = new Uri("http://localhost:6341/");

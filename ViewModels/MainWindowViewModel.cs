@@ -12,6 +12,9 @@ namespace WorkControllerAdmin.ViewModels
 {
     internal class MainWindowViewModel: BaseViewModel
     {
+        public MainWindowViewModel()
+        {
+        }
         private User user;
         public User User
         {
@@ -22,7 +25,5 @@ namespace WorkControllerAdmin.ViewModels
                 OnPropertyChanged(nameof(User));
             }
         }
-
-        
     }
 }

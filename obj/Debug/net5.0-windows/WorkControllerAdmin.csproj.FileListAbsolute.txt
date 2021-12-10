@@ -62,10 +62,15 @@ C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\o
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.csproj.CoreCompileInputs.cache
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.csproj.CopyComplete
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin.genruntimeconfig.cache
-C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.g.cs
-C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.baml
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Resourses.baml
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\WorkControllerAdmin_Content.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\App.baml
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\MainWindow.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\MainWindow.baml
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.g.cs
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\Unity.Abstractions.dll
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\Unity.Container.dll
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.baml
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\RegisterView.g.cs
+C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\RegisterView.baml
