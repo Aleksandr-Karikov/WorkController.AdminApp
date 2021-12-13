@@ -71,6 +71,5 @@ C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\o
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\Unity.Abstractions.dll
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\bin\Debug\net5.0-windows\Unity.Container.dll
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\LoginView.baml
-C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\RegisterView.g.cs
 C:\Users\Александр\source\repos\WorkController\WorkControllerAdminApp\obj\Debug\net5.0-windows\Views\RegisterView.baml

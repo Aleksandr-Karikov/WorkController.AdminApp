@@ -5,36 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkControllerAdmin.Views"
         mc:Ignorable="d"
-        Title="Регистрация" Height="200" Width="400"
+        Title="Регистрация" Height="200" Width="600"
         Background="SandyBrown"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.6*"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
             <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel></StackPanel>
-        <StackPanel VerticalAlignment="Center" Margin="238,0,2,0" Grid.ColumnSpan="2">
+        <StackPanel VerticalAlignment="Center"  Grid.Column="2">
             <Button 
             Margin="5"
             Content="Зарегистрироваться"
-            Height="35"/>
+            Height="35"
+                Command="{Binding RegisterCommand}"/>
             <Button 
             VerticalAlignment="Bottom"
             Margin="5"
-            Content="Войти"
+            Content="Уже имею аккаунт"
             Height="35"
             Command="{Binding LoginCommand}"
             />
         </StackPanel>
-
         <StackPanel Grid.Column="0" VerticalAlignment="Center">
             <Label Foreground="White"  FontSize="16" FontFamily="Book Antiqua" FontWeight="Normal">Почта</Label>
-            <TextBox HorizontalAlignment="Left" Width="130" Text ="{Binding Email, Mode=TwoWay}"  Height="30" Margin="5" FontSize="20"></TextBox>
+            <TextBox HorizontalAlignment="Left" Width="130" Text ="{Binding Email, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Height="30" Margin="5" FontSize="20"></TextBox>
             <Label   Foreground="White" FontSize="16" FontFamily="Book Antiqua" FontWeight="Normal">Пароль</Label>
-            <TextBox HorizontalAlignment="Left" Width="130" Text ="{Binding Password, Mode=TwoWay}" Height="30" Margin="5" FontSize="20"></TextBox>
+            <TextBox HorizontalAlignment="Left" Width="130" Text ="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="30" Margin="5" FontSize="20"></TextBox>
 
         </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Foreground="White"  FontSize="16" FontFamily="Book Antiqua" FontWeight="Normal">Фамилия</Label>
+            <TextBox HorizontalAlignment="Left" Width="130" Text ="{Binding LastName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Height="30" Margin="5" FontSize="20"></TextBox>
+            <Label   Foreground="White" FontSize="16" FontFamily="Book Antiqua" FontWeight="Normal">Имя</Label>
+            <TextBox HorizontalAlignment="Left" Width="130" Text ="{Binding FirstName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="30" Margin="5" FontSize="20"></TextBox>
 
+        </StackPanel>
     </Grid>
 </Window>
