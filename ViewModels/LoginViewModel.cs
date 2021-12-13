@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-
 using WorkControllerAdmin.Commands;
 using WorkControllerAdmin.Http.Helper;
 using WorkControllerAdmin.Http.Helper.ApiHelper;
@@ -105,6 +105,11 @@ namespace WorkControllerAdmin.ViewModels
         private async void OnLoginCommandExecute(object p)
         {
             #region Валидность полей
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Одно из полей пустое");
+                return;
+            }
             if (password.Contains("*"))
             {
                 MessageBox.Show("Пароль не может содержать '*'");
@@ -113,11 +118,6 @@ namespace WorkControllerAdmin.ViewModels
             if (password.Contains(" "))
             {
                 MessageBox.Show("Пароль не может содержать пробелов");
-                return;
-            }
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Одно из полей пустое");
                 return;
             }
             if (password.Length < 6)
@@ -138,9 +138,21 @@ namespace WorkControllerAdmin.ViewModels
                     Email = this.Email,
                     Password = password
                 });
-                MessageBox.Show(await response.Content.ReadAsStringAsync());
+
+                var user = JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
+                MessageBox.Show("Приветствуем " + user.LastName + " " + user.FirstName );
+
+                var newWindow = new MainWindow(new User(factory) 
+                {   Email = user.Email,
+                    FirstName = user.FirstName, 
+                    LastName = user.LastName,
+                    Token = user.Token
+                });
+                var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                window.Close();
+                newWindow.Show();
             }
-            catch(HttpRequestException e)
+            catch(HttpRequestException)
             {
                 MessageBox.Show("Отсутствует подключение к серверу");
             }

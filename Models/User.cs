@@ -7,18 +7,20 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using WorkControllerAdmin.Http.Helper;
-using WorkControllerAdmin.Http.Helper.ApiHelper;
 using WorkControllerAdmin.Http.RequstModels;
+using WorkController.Common;
+using WorkControllerAdmin.Http.Helper.ApiHelper;
+using WorkControllerAdmin.Http.Helper;
 
 namespace WorkControllerAdmin.Models
 {
-    internal class User : INotifyPropertyChanged
+    public  class User : INotifyPropertyChanged
     {
-        User(IHttpClientFactory _factory)
+        public User(IHttpClientFactory _factory)
         {
             factory = _factory;
         }
+        public User(){}
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
@@ -73,18 +75,5 @@ namespace WorkControllerAdmin.Models
         }
         #endregion
 
-
-        public async Task Login(string password,string Email)
-        {
-            var response = await RequestHelper.SendPostRequest(ApiHelperUri.LoginUri, factory, new LoginModel()
-            {
-                Email = Email,
-                Password = password
-            }) ;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show(await response.Content.ReadAsStringAsync());
-            }
-        }
     }
 }

@@ -5,10 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkControllerAdmin.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-    </Window.Resources>
-    <Grid>
-        <ContentControl x:Name="ContentArea" />
-    </Grid>
+        Title="MainWindow" Height="450" Width="400"
+         WindowStyle="None"
+        ResizeMode="NoResize">
+    <Border Background="#272537" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Список ваших подчиненных"
+                   Foreground="White"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   Margin="0,5,0,0"
+                   Grid.Row="0"/>
+                    <TextBox Style="{StaticResource ModerTextBox}" 
+                             Margin="5" 
+                             Width="200"
+                             Grid.Row="1"
+                             Tag="Поиск"
+                             FontSize="15"/>
+                    <DataGrid Grid.Row="2"  
+                          IsReadOnly="True"
+                          HorizontalContentAlignment="Center"
+                          ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                          >
+                        
+                    </DataGrid>
+                </Grid>
+
+
+
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="DarkBlue" Offset="0.0"></GradientStop>
+                        <GradientStop Color="BlueViolet" Offset="0.0"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                               RadiusY="10"
+                               Rect="10,10,380,375"/>
+                </Border.Clip>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

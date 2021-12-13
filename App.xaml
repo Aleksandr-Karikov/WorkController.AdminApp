@@ -6,8 +6,9 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary x:Name="Dictionary" 
-                 Source="Resourses.xaml" />
+                <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/ButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/DataGridTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

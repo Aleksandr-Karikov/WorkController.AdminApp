@@ -43,6 +43,15 @@ namespace WorkControllerAdmin.ViewModels
                 OnPropertyChanged(nameof(Email));
             }
         }
+        public string Password
+        {
+            get => password;
+            set
+            {
+                password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
         public string FirstName
         {
             get => firstName;
