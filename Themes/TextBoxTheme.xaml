@@ -9,7 +9,7 @@
                         <Grid>
                             <Rectangle StrokeThickness="1"/>
                             <TextBox Margin="1"
-                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"  
+                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent},UpdateSourceTrigger=PropertyChanged}"  
                                      BorderThickness="0"
                                      Foreground="#CFCFCF"
                                      x:Name="InputBox"

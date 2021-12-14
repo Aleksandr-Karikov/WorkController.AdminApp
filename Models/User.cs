@@ -11,6 +11,9 @@ using WorkControllerAdmin.Http.RequstModels;
 using WorkController.Common;
 using WorkControllerAdmin.Http.Helper.ApiHelper;
 using WorkControllerAdmin.Http.Helper;
+using WorkController.Admin.Models;
+using Newtonsoft.Json;
+using WorkController.Admin.Http.RequstModels;
 
 namespace WorkControllerAdmin.Models
 {
@@ -33,6 +36,7 @@ namespace WorkControllerAdmin.Models
         private string firstName;
         private string lastName;
         private string token;
+        private int id;
         #endregion
         #region Properties
         public string Email
@@ -44,8 +48,16 @@ namespace WorkControllerAdmin.Models
                 OnPropertyChanged(nameof(Email));
             }
         }
-       
-        
+
+        public int ID
+        {
+            get => id;
+            set
+            {
+                id = value;
+                OnPropertyChanged(nameof(ID));
+            }
+        }
         public string FirstName
         {
             get => firstName;
@@ -75,5 +87,20 @@ namespace WorkControllerAdmin.Models
         }
         #endregion
 
+
+        public async Task<IEnumerable<Employee>> GetEmployees()
+        {
+            
+            var response = await RequestHelper.SendPostAuthRequest(ApiHelperUri.GetEmployeesUri + $"?ID={ID}",factory,Token);
+            var content = await response.Content.ReadAsStringAsync();
+            var c = JsonConvert.DeserializeObject<List<Employee>>(content);
+            return c;
+        }
+        public async Task SetNewWorker(SetEmployee employee)
+        {
+            var response = await RequestHelper.SendPostAuthRequest(ApiHelperUri.SetEmployeeUri, factory, Token, employee);
+            var content = await response.Content.ReadAsStringAsync();
+            MessageBox.Show(content);
+        }
     }
 }

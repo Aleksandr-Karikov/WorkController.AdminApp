@@ -92,7 +92,10 @@ namespace WorkControllerAdmin.ViewModels
                     }
                     OnPropertyChanged(nameof(ViewPassword));
                 }
-                catch (Exception) { }
+                catch (Exception) { 
+                    viewPassword = String.Empty;
+                    password = String.Empty;
+                }
             }
         }
         #endregion
@@ -142,12 +145,14 @@ namespace WorkControllerAdmin.ViewModels
                 var user = JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
                 MessageBox.Show("Приветствуем " + user.LastName + " " + user.FirstName );
 
-                var newWindow = new MainWindow(new User(factory) 
-                {   Email = user.Email,
-                    FirstName = user.FirstName, 
+                var newWindow = new MainWindow(new User(factory)
+                {
+                    Email = user.Email,
+                    FirstName = user.FirstName,
                     LastName = user.LastName,
-                    Token = user.Token
-                });
+                    Token = user.Token,
+                    ID = user.ID
+                }) ;
                 var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
                 window.Close();
                 newWindow.Show();

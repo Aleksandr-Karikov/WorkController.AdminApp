@@ -32,7 +32,7 @@ namespace WorkControllerAdmin
             {
                 c.BaseAddress = new Uri("http://localhost:6341/");
                 // Github API versioning
-                c.DefaultRequestHeaders.Add("Accept", "application/json");
+              //  c.DefaultRequestHeaders.Add("Accept", "application/json");
                 // Github requires a user-agent
                 //c.DefaultRequestHeaders.Add("Token", Token.AcceptToken);
             });

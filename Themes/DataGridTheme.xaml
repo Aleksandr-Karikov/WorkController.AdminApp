@@ -4,7 +4,7 @@
         <Setter Property="Foreground" Value="#FFB3B3B3"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="Template" Value="{DynamicResource DataGridRowControlTemplate1}"/>
+        <!--<Setter Property="Template" Value="{DynamicResource DataGridRowControlTemplate1}"/>-->
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#FF262626"/>

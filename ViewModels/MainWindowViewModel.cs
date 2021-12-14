@@ -6,7 +6,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using WorkController.Admin.Http.RequstModels;
 using WorkController.Admin.Models;
+using WorkControllerAdmin.Commands;
+using WorkControllerAdmin.Http.Helper;
+using WorkControllerAdmin.Http.Helper.ApiHelper;
 using WorkControllerAdmin.Models;
 using WorkControllerAdmin.ViewModels.BaseViewModels;
 
@@ -14,36 +20,115 @@ namespace WorkControllerAdmin.ViewModels
 {
     internal class MainWindowViewModel: BaseViewModel
     {
-        public MainWindowViewModel(User user)
+        public  MainWindowViewModel(User user)
         {
             this.user = user;
+            AddCommand = new LamdaCommand(OnAddCommandExecute, CanAddCommandExecute);
             Update();
+            
+        }
+        private Employee curentEmployee;
+
+        public Employee CurentEmployee
+        {
+            get => curentEmployee;
+            set
+            {
+                curentEmployee = value;
+                Selected = curentEmployee.LastName + " " + curentEmployee.FirstName;
+                OnPropertyChanged(nameof(CurentEmployee));
+            }
+        }
+        private string selected;
+        public string Selected
+        {
+            get => selected;
+            set
+            {
+                selected = value;
+                OnPropertyChanged(nameof(Selected));
+            }
+        }
+        private string find;
+        public string Find
+        {
+            get => find;
+            set
+            {
+                find = value;
+                OnPropertyChanged(nameof(Find));
+                UpdateCurent();
+            }
+        }
+        private string addEmail;
+        public string AddEmail
+        {
+            get => addEmail;
+            set
+            {
+                addEmail = value;
+                OnPropertyChanged(nameof(AddEmail));
+            }
         }
         private User user;
         public ObservableCollection<Employee> Employees { get; set; } =
             new ObservableCollection<Employee> { };
-        public void Update()
+        public ObservableCollection<Employee> CurentEmployees { get; set; } =
+            new ObservableCollection<Employee> { };
+        public async void Update()
         {
-            Employees.Add(new Employee()
-            {
-                LastName = "test",
-                FirstName = "test",
-                Email = "test"
-            });
-            Employees.Add(new Employee()
-            {
-                LastName = "test1",
-                FirstName = "test1",
-                Email = "test1"
-            });
-            Employees.Add(new Employee()
-            {
-                LastName = "test2",
-                FirstName = "test2",
-                Email = "test2"
-            });
-       
-        }
+            Employees.Clear();
+            var emps = await user.GetEmployees();
+            if (emps != null)
+                foreach(var emp in emps)
+                {
+                    Employees.Add(emp);
+                }
 
+            UpdateCurent();
+        }
+        private void UpdateCurent()
+        {
+            CurentEmployees.Clear();
+            if (string.IsNullOrEmpty(Find))
+            {
+                foreach (var emp in Employees)
+                {
+                    CurentEmployees.Add(emp);
+                }
+                return;
+            }
+            foreach (var emp in Employees)
+            {
+                if (string.IsNullOrEmpty(emp.LastName) && string.IsNullOrEmpty(emp.FirstName))
+                    continue;
+                if (emp.Email.ToUpper().Contains(Find.ToUpper())  || emp.LastName.ToUpper().Contains(Find.ToUpper()) || emp.FirstName.ToUpper().Contains(Find.ToUpper()))
+                {
+                    CurentEmployees.Add(emp);
+                }
+            }
+        }
+        public ICommand AddCommand { get; }
+        private bool CanAddCommandExecute(object p) => true;
+        private async void OnAddCommandExecute(object p)
+        {
+            if (string.IsNullOrEmpty(AddEmail))
+            {
+                MessageBox.Show("Поле почта пустое");
+                return;
+            }
+            if (!RequestHelper.IsValidEmail(AddEmail))
+            {
+                MessageBox.Show("Email не корректен");
+                return;
+            }
+            await user.SetNewWorker(new SetEmployee()
+            {
+                Email = addEmail,
+                ChiefId = user.ID
+            });
+            Update();
+
+        }
     }
 }

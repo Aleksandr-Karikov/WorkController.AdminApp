@@ -8,7 +8,7 @@ using WorkController.Common.Helper;
 
 namespace WorkControllerAdmin.Http.RequstModels.Base
 {
-    internal class BaseRequest:IRequest
+    public class BaseRequest:IRequest
     {
         [JsonProperty("isAdmin")]
         public bool IsAdmin = true;
