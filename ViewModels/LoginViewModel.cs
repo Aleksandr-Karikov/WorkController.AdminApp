@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WorkController.Common.Http.Helper;
+using WorkController.Common.Http.Helper.ApiHelper;
 using WorkControllerAdmin.Commands;
-using WorkControllerAdmin.Http.Helper;
-using WorkControllerAdmin.Http.Helper.ApiHelper;
 using WorkControllerAdmin.Http.RequstModels;
 using WorkControllerAdmin.Models;
 using WorkControllerAdmin.ViewModels.BaseViewModels;
@@ -134,9 +134,10 @@ namespace WorkControllerAdmin.ViewModels
                 return;
             }
             #endregion
+            HttpResponseMessage response = null;
             try
             {
-                var response = await RequestHelper.SendPostRequest(ApiHelperUri.LoginUri, factory, new LoginModel()
+                response = await RequestHelper.SendPostRequest(ApiHelperUri.LoginUri, factory, new LoginModel()
                 {
                     Email = this.Email,
                     Password = password
@@ -161,11 +162,18 @@ namespace WorkControllerAdmin.ViewModels
             {
                 MessageBox.Show("Отсутствует подключение к серверу");
             }
+            catch (JsonException)
+            {
+
+                var mes = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(mes);
+                return;
+            }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            
+
         }
         public ICommand RegisterCommand { get; }
         private bool CanRegisterCommandExecute(object p) => true;

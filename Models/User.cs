@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using WorkControllerAdmin.Http.RequstModels;
 using WorkController.Common;
-using WorkControllerAdmin.Http.Helper.ApiHelper;
-using WorkControllerAdmin.Http.Helper;
 using WorkController.Admin.Models;
 using Newtonsoft.Json;
 using WorkController.Admin.Http.RequstModels;
+using WorkController.Common.Http.Helper;
+using WorkController.Common.Http.Helper.ApiHelper;
 
 namespace WorkControllerAdmin.Models
 {

@@ -10,9 +10,8 @@ using System.Windows;
 using System.Windows.Input;
 using WorkController.Admin.Http.RequstModels;
 using WorkController.Admin.Models;
+using WorkController.Common.Http.Helper;
 using WorkControllerAdmin.Commands;
-using WorkControllerAdmin.Http.Helper;
-using WorkControllerAdmin.Http.Helper.ApiHelper;
 using WorkControllerAdmin.Models;
 using WorkControllerAdmin.ViewModels.BaseViewModels;
 
