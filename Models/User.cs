@@ -21,7 +21,7 @@ namespace WorkControllerAdmin.Models
     {
         public User(IHttpClientFactory _factory)
         {
-            factory = _factory;
+            Factory = _factory;
         }
         public User(){}
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,7 +31,7 @@ namespace WorkControllerAdmin.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
         #region Fields
-        private IHttpClientFactory factory;
+        public IHttpClientFactory Factory { get; private set; }
         private string email;
         private string firstName;
         private string lastName;
@@ -91,14 +91,14 @@ namespace WorkControllerAdmin.Models
         public async Task<IEnumerable<Employee>> GetEmployees()
         {
             
-            var response = await RequestHelper.SendPostAuthRequest(ApiHelperUri.GetEmployeesUri + $"?ID={ID}",factory,Token);
+            var response = await RequestHelper.SendPostAuthRequest(ApiHelperUri.GetEmployeesUri + $"?ID={ID}",Factory,Token);
             var content = await response.Content.ReadAsStringAsync();
             var c = JsonConvert.DeserializeObject<List<Employee>>(content);
             return c;
         }
         public async Task SetNewWorker(SetEmployee employee)
         {
-            var response = await RequestHelper.SendPostAuthRequest(ApiHelperUri.SetEmployeeUri, factory, Token, employee);
+            var response = await RequestHelper.SendPostAuthRequest(ApiHelperUri.SetEmployeeUri, Factory, Token, employee);
             var content = await response.Content.ReadAsStringAsync();
             MessageBox.Show(content);
         }

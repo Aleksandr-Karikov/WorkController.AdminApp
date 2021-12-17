@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using WorkController.Admin.Http.RequstModels;
 using WorkController.Admin.Models;
+using WorkController.Admin.Views;
 using WorkController.Common.Http.Helper;
 using WorkControllerAdmin.Commands;
 using WorkControllerAdmin.Models;
@@ -23,6 +24,8 @@ namespace WorkControllerAdmin.ViewModels
         {
             this.user = user;
             AddCommand = new LamdaCommand(OnAddCommandExecute, CanAddCommandExecute);
+            CloseCommand = new LamdaCommand(OnCloseCommandExecute, CanCloseCommandExecute);
+            HistoryCommand = new LamdaCommand(OnHistoryCommandExecute, CanHistoryCommandExecute);
             Update();
             
         }
@@ -127,7 +130,36 @@ namespace WorkControllerAdmin.ViewModels
                 ChiefId = user.ID
             });
             Update();
+        }
 
+        public ICommand CloseCommand { get; }
+        private bool CanCloseCommandExecute(object p)
+        {
+            return true;
+        }
+        private void OnCloseCommandExecute(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        public ICommand HistoryCommand { get; }
+        private bool CanHistoryCommandExecute(object p)
+        {
+            return true;
+        }
+        private void OnHistoryCommandExecute(object p)
+        {
+            if (CurentEmployee == null)
+            {
+                MessageBox.Show("Выберите сотрудника");
+                return;
+            }
+            if (string.IsNullOrEmpty(CurentEmployee.FirstName))
+            {
+                MessageBox.Show("Пользователь не зарегестрирован");
+                return;
+            }
+            new EmployeeView(CurentEmployee,user).Show();
         }
     }
 }

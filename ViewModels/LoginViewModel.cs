@@ -113,7 +113,7 @@ namespace WorkControllerAdmin.ViewModels
                 MessageBox.Show("Одно из полей пустое");
                 return;
             }
-            if (password.Contains("*"))
+            if (password.Contains('*'))
             {
                 MessageBox.Show("Пароль не может содержать '*'");
                 return;

@@ -16,20 +16,49 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{StaticResource ButtonTheme}"
+                        Width="130" 
+                        Height="30"
+                        Margin="4" 
+                        Foreground="White"
+                        Content="Сменить пользователя"/>
+                <Button Command="{Binding CloseCommand}" 
+                        Style="{StaticResource ButtonTheme}" 
+                        Width="80" Height="30" Margin="4" 
+                        Foreground="White"
+                        Content="Выйти"/>
+            </StackPanel>
+            <Border Grid.Row="1">
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button
+                            HorizontalAlignment="Right"
+                            Width="60"
+                            Margin="20,9,5,5"
+                            Style="{DynamicResource ButtonTheme}"
+                            Content="История"
+                            Foreground="White"
+                            FontSize="15"
+                            Command="{Binding HistoryCommand}"
+                            />
+                        <Button
+                            HorizontalAlignment="Right"
+                            Width="60"
+                            Margin="20,9,5,5"
+                            Style="{DynamicResource ButtonTheme}"
+                            Content="Удалить"
+                            Foreground="White"
+                            FontSize="15"
+                            />
                         <TextBox
                         Text="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                         HorizontalAlignment="Left"
-                        Margin="20,0,0,8"
+                        Margin="20,7,0,2"
                         Foreground="White"
                         FontSize="17"
                         Width="170"
@@ -37,24 +66,7 @@
                             Background="Transparent"
                             BorderThickness="0"
                             />
-                        <Button
-                            HorizontalAlignment="Right"
-                            Width="60"
-                            Margin="20,5,5,5"
-                            Style="{DynamicResource ButtonTheme}"
-                            Content="История"
-                            Foreground="White"
-                            FontSize="15"
-                            />
-                        <Button
-                            HorizontalAlignment="Right"
-                            Width="60"
-                            Margin="20,5,5,5"
-                            Style="{DynamicResource ButtonTheme}"
-                            Content="Удалить"
-                            Foreground="White"
-                            FontSize="15"
-                            />
+                        
                     </StackPanel>
 
                 </Grid>
@@ -70,7 +82,7 @@
                                Rect="10,010,380,25"/>
                 </Border.Clip>
             </Border>
-            <Border Grid.Row="1" Margin="0,20,0,20">
+            <Border Grid.Row="2" Margin="0,20,0,20">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
@@ -132,7 +144,7 @@
                                Rect="10,10,380,375"/>
                 </Border.Clip>
             </Border>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Center">
                 <Button
                     FontSize="16"
                 Style="{StaticResource ButtonTheme}"
@@ -140,7 +152,7 @@
                 Command="{Binding AddCommand}"
                 Foreground="White"/>
                 <TextBox
-                    Height="35"
+                    Height="30"
                     FontSize="16"
                     Style="{StaticResource ModerTextBox}"
                     Tag ="Почта сотрудника"
