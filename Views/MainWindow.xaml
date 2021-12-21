@@ -26,7 +26,8 @@
                         Height="30"
                         Margin="4" 
                         Foreground="White"
-                        Content="Сменить пользователя"/>
+                        Content="Сменить пользователя"
+                         Command="{Binding ChangeUserCommand}"/>
                 <Button Command="{Binding CloseCommand}" 
                         Style="{StaticResource ButtonTheme}" 
                         Width="80" Height="30" Margin="4" 
@@ -58,7 +59,7 @@
                         <TextBox
                         Text="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                         HorizontalAlignment="Left"
-                        Margin="20,7,0,2"
+                        Margin="20,10,0,4"
                         Foreground="White"
                         FontSize="17"
                         Width="170"

@@ -9,7 +9,7 @@ using WorkControllerAdmin.Models;
 
 namespace WorkControllerAdmin.ViewModels.BaseViewModels
 {
-    internal abstract class BaseViewModel: INotifyPropertyChanged
+    public abstract class BaseViewModel: INotifyPropertyChanged
     {
 
         

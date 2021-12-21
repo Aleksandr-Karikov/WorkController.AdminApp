@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -15,6 +16,7 @@ using WorkController.Common.Http.Helper;
 using WorkControllerAdmin.Commands;
 using WorkControllerAdmin.Models;
 using WorkControllerAdmin.ViewModels.BaseViewModels;
+using WorkControllerAdmin.Views;
 
 namespace WorkControllerAdmin.ViewModels
 {
@@ -26,6 +28,7 @@ namespace WorkControllerAdmin.ViewModels
             AddCommand = new LamdaCommand(OnAddCommandExecute, CanAddCommandExecute);
             CloseCommand = new LamdaCommand(OnCloseCommandExecute, CanCloseCommandExecute);
             HistoryCommand = new LamdaCommand(OnHistoryCommandExecute, CanHistoryCommandExecute);
+            ChangeUserCommand = new LamdaCommand(OnChangeUserCommandExecute, CanChangeUserCommandExecute);
             Update();
             
         }
@@ -160,6 +163,22 @@ namespace WorkControllerAdmin.ViewModels
                 return;
             }
             new EmployeeView(CurentEmployee,user).Show();
+        }
+
+        public ICommand ChangeUserCommand { get; }
+        private bool CanChangeUserCommandExecute(object p)
+        {
+            return true;
+        }
+        private void OnChangeUserCommandExecute(object p)
+        {
+            
+            new LoginView(user.Factory).Show();
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is LoginView) continue;
+                window.Close();
+            }
         }
     }
 }

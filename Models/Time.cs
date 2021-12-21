@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace WorkController.Admin.Models
 {
-    internal class Time
+    public class Time
     {
         public DateTime DateTime {get;set;}
         public int Milleseconds { get; set; }
+        public string TimeString { get; set; }
     }
 }

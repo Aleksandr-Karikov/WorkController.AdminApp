@@ -6,6 +6,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <!--<Setter Property="Template" Value="{DynamicResource DataGridRowControlTemplate1}"/>-->
         <Style.Triggers>
+            
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#FF262626"/>
             </Trigger>
@@ -15,6 +16,7 @@
             <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                 <Setter Property="Background" Value="#FF333333"/>
             </Trigger>
+
         </Style.Triggers>
     </Style>
 </ResourceDictionary>
