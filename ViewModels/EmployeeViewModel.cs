@@ -114,9 +114,9 @@ namespace WorkController.Admin.ViewModels
             {
                 MoneyPerHour = employee.MoneyPerHour;
             }
-            if (employee.Period != 0)
+            if (employee.ScreenShotPeriod != 0)
             {
-                Period = employee.Period;
+                Period = employee.ScreenShotPeriod;
             }
             Update();
         }

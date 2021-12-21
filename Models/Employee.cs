@@ -19,7 +19,7 @@ namespace WorkController.Admin.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public int MoneyPerHour { get; set; }
-        public int Period { get; set; }
+        public int ScreenShotPeriod { get; set; }
         public async Task<List<byte[]>> GetScreenshots(IHttpClientFactory factory, string Token,DateTime date)
         {
 
